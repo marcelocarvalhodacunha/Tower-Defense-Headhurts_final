@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b0quhaofge46u"]
+
+[ext_resource type="PackedScene" uid="uid://7vph50s7xgh8" path="res://scenes/tower.tscn" id="1_5xc8o"]
+[ext_resource type="Script" uid="uid://bbewmk1prhfbp" path="res://scripts/towers/tower_poison.gd" id="2_3xsvk"]
+[ext_resource type="PackedScene" uid="uid://de3bwdynh2emt" path="res://scenes/projectile_poison.tscn" id="3_akqqp"]
+[ext_resource type="Texture2D" uid="uid://c44xnwlqxqwug" path="res://sprites/Towers bases/poison_base.png" id="3_q5o4r"]
+[ext_resource type="Texture2D" uid="uid://yr5fc4r2sdbt" path="res://sprites/Towers Weapons/poison_turret.png" id="4_akqqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5o4r"]
+atlas = ExtResource("4_akqqp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7cak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5o4r")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xsvk"]
+
+[node name="TowerPoison" unique_id=760411638 instance=ExtResource("1_5xc8o")]
+script = ExtResource("2_3xsvk")
+display_name = "Torre Veneno"
+damage = 3
+attack_range = 140.0
+attack_speed = 0.5
+cost = 100
+effects_description = "Veneno: 1 dano/tick por 3s, -1 armadura"
+default_upgrade_paths = Array[String](["res://resources/tower_poison_upgrade_1.tres"])
+projectile_scene = ExtResource("3_akqqp")
+target_priority = 0
+
+[node name="Base" parent="." index="0" unique_id=470507054]
+texture = ExtResource("3_q5o4r")
+
+[node name="Turret" parent="." index="1" unique_id=1811122724]
+sprite_frames = SubResource("SpriteFrames_m7cak")
+animation = &"shoot"
+flip_v = true
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(759435905) index="0" unique_id=1396275478]
+shape = SubResource("CircleShape2D_3xsvk")

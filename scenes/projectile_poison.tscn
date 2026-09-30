@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://de3bwdynh2emt"]
+
+[ext_resource type="PackedScene" uid="uid://24141w3q6awv" path="res://scenes/projectile.tscn" id="1_xw6rt"]
+[ext_resource type="Script" uid="uid://ct4ytgg0338hs" path="res://scripts/projectiles/projectile_poison.gd" id="2_xw6rt"]
+[ext_resource type="Texture2D" uid="uid://1rusobggihy3" path="res://sprites/Towers Weapons/poison_projectille.png" id="3_x067x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh81k"]
+atlas = ExtResource("3_x067x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wk85i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh81k")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5w3e"]
+radius = 8.0
+
+[node name="ProjectilePoison" unique_id=1946581329 instance=ExtResource("1_xw6rt")]
+script = ExtResource("2_xw6rt")
+poison_damage_per_tick = 1
+poison_tick_interval = 0.5
+poison_duration = 3.0
+poison_armor_reduction = 1
+poison_tint = Color(0.6, 1, 0.6, 1)
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=961138718]
+sprite_frames = SubResource("SpriteFrames_wk85i")
+animation = &"fly"
+flip_v = true
+
+[node name="CollisionShape2D" parent="HitArea" index="0"]
+shape = SubResource("CapsuleShape2D_o5w3e")

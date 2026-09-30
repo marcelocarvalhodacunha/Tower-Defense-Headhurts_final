@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cayi6bis1qjg5"]
+
+[ext_resource type="PackedScene" uid="uid://7vph50s7xgh8" path="res://scenes/tower.tscn" id="1_flame"]
+[ext_resource type="Script" uid="uid://dj4o2d1td7fos" path="res://scripts/towers/tower_flame.gd" id="2_flame"]
+[ext_resource type="PackedScene" uid="uid://dv4e45xubeafp" path="res://scenes/projectile_flame.tscn" id="3_flame"]
+[ext_resource type="Texture2D" uid="uid://dv2piqoh5rqaw" path="res://sprites/Towers bases/flame_base.png" id="4_flame"]
+[ext_resource type="Texture2D" uid="uid://bh7etdwmkgmjx" path="res://sprites/Towers Weapons/flame_turret.png" id="5_flame"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flame_turret"]
+atlas = ExtResource("5_flame")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flame_turret"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flame_turret")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flame"]
+
+[node name="TowerFlame" unique_id=760411638 instance=ExtResource("1_flame")]
+script = ExtResource("2_flame")
+display_name = "Torre Fogo"
+damage = 2
+attack_range = 130.0
+attack_speed = 1.0
+cost = 110
+effects_description = "Queimadura: 5 dano/tick por 2s (rápido)"
+projectile_scene = ExtResource("3_flame")
+default_upgrade_paths = Array[String](["res://resources/tower_flame_upgrade_1.tres"])
+target_priority = 0
+
+[node name="Base" parent="." index="0" unique_id=470507054]
+texture = ExtResource("4_flame")
+
+[node name="Turret" parent="." index="1" unique_id=1811122724]
+sprite_frames = SubResource("SpriteFrames_flame_turret")
+animation = &"shoot"
+flip_v = true
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(759435905) index="0" unique_id=1396275478]
+shape = SubResource("CircleShape2D_flame")

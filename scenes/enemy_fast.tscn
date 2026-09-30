@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdwb1070go25j"]
+
+[ext_resource type="PackedScene" uid="uid://c28obpghaycy6" path="res://scenes/enemy.tscn" id="1_00nrq"]
+[ext_resource type="Script" uid="uid://oabogwculwhw" path="res://scripts/enemies/enemy_fast.gd" id="2_pufb0"]
+[ext_resource type="Texture2D" uid="uid://daeei5ny0n2mr" path="res://sprites/Enemies/FairyFast.png" id="3_pufb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00nrq"]
+size = Vector2(24, 28)
+
+[node name="EnemyFast" unique_id=1221008264 instance=ExtResource("1_00nrq")]
+script = ExtResource("2_pufb0")
+max_health = 6
+speed = 100.0
+damage = 2
+gold_reward = 7
+
+[node name="Sprite2D" parent="." index="0" unique_id=1539967986]
+texture = ExtResource("3_pufb0")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1470586444]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_00nrq")

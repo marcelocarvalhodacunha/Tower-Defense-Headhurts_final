@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dpatd5d60s2w3"]
+
+[ext_resource type="PackedScene" uid="uid://24141w3q6awv" path="res://scenes/projectile.tscn" id="1_ice"]
+[ext_resource type="Script" uid="uid://di0bxjxuflwcm" path="res://scripts/projectiles/projectile_ice.gd" id="2_ice"]
+[ext_resource type="Texture2D" uid="uid://bebi0i84l6vyo" path="res://sprites/Towers Weapons/ice_projectile.png" id="3_ice"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice_proj"]
+atlas = ExtResource("3_ice")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ice_proj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ice_proj")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vhdt"]
+radius = 7.0
+
+[node name="ProjectileIce" unique_id=1946581329 instance=ExtResource("1_ice")]
+script = ExtResource("2_ice")
+freeze_slow_factor = 0.5
+freeze_duration = 2.5
+freeze_tint = Color(0.6, 0.9, 1, 1)
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=961138718]
+sprite_frames = SubResource("SpriteFrames_ice_proj")
+animation = &"fly"
+
+[node name="CollisionShape2D" parent="HitArea" index="0"]
+shape = SubResource("CapsuleShape2D_0vhdt")

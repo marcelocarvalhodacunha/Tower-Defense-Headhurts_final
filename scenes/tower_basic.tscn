@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ca3arbt8s8s6i"]
+
+[ext_resource type="PackedScene" uid="uid://7vph50s7xgh8" path="res://scenes/tower.tscn" id="1_iihrp"]
+[ext_resource type="Script" uid="uid://ck8rdf1e4sgvf" path="res://scripts/towers/tower_basic.gd" id="2_guog3"]
+[ext_resource type="PackedScene" uid="uid://u7d573oifarx" path="res://scenes/projectile_basic.tscn" id="3_bnp34"]
+[ext_resource type="Texture2D" uid="uid://b8m3f4jfor2yl" path="res://sprites/Towers bases/normal_base.png" id="3_salem"]
+[ext_resource type="Texture2D" uid="uid://cmcpo5egyxw06" path="res://sprites/Towers Weapons/normal_turret.png" id="4_guog3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_salem"]
+atlas = ExtResource("4_guog3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnp34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_salem")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
+
+[node name="TowerBasic" unique_id=760411638 instance=ExtResource("1_iihrp")]
+script = ExtResource("2_guog3")
+display_name = "Torre Normal"
+damage = 5
+attack_range = 180.0
+attack_speed = 1.0
+cost = 70
+projectile_scene = ExtResource("3_bnp34")
+default_upgrade_paths = Array[String](["res://resources/tower_basic_upgrade_1.tres"])
+target_priority = 0
+
+[node name="Base" parent="." index="0" unique_id=470507054]
+texture = ExtResource("3_salem")
+
+[node name="Turret" parent="." index="1" unique_id=1811122724]
+sprite_frames = SubResource("SpriteFrames_bnp34")
+animation = &"shoot"
+flip_v = true
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(759435905) index="0" unique_id=1396275478]
+shape = SubResource("CircleShape2D_7p1mj")

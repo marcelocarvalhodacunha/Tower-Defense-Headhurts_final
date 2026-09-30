@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MissionData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/mission_data.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/mission_1.tscn" id="2_scene"]
+
+[resource]
+script = ExtResource("1_script")
+id = "mission_1"
+display_name = "Missão 1"
+scene = ExtResource("2_scene")
+required_mission_ids = Array[String]([])

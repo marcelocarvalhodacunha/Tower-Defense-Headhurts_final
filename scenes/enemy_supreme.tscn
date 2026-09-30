@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://clqcutvpt1fky"]
+
+[ext_resource type="PackedScene" uid="uid://c28obpghaycy6" path="res://scenes/enemy.tscn" id="1_14vow"]
+[ext_resource type="Script" uid="uid://bq4li6gke52tr" path="res://scripts/enemies/enemy_supreme.gd" id="2_1ngfj"]
+[ext_resource type="Texture2D" uid="uid://ckl2v7wncx3uo" path="res://sprites/Enemies/FairySupreme.png" id="3_7q7ur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk85i"]
+size = Vector2(34, 48)
+
+[node name="EnemySupreme" unique_id=1221008264 instance=ExtResource("1_14vow")]
+script = ExtResource("2_1ngfj")
+max_health = 175
+speed = 85.0
+damage = 10
+gold_reward = 75
+armor = 2
+
+[node name="Sprite2D" parent="." index="0" unique_id=1539967986]
+texture = ExtResource("3_7q7ur")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1470586444]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_wk85i")

@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="TowerUpgrade" format=3 uid="uid://d0dk28qgqsxud"]
+
+[ext_resource type="Script" uid="uid://be4q2vgvacwpm" path="res://scripts/tower_upgrade.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://box7bxsbemovm" path="res://sprites/Towers bases/ice_base2.png" id="2_base2"]
+[ext_resource type="Texture2D" uid="uid://bkhsir273r76e" path="res://sprites/Towers Weapons/ice_turret2.png" id="3_turret2"]
+[ext_resource type="Texture2D" uid="uid://dw86hpddb5fit" path="res://sprites/Towers Weapons/ice_projectile2.png" id="4_proj2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_proj2"]
+atlas = ExtResource("4_proj2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_proj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_proj2")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_turret2"]
+atlas = ExtResource("3_turret2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_turret2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_turret2")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_script")
+cost = 100
+damage = 2
+attack_range = 170.0
+projectile_speed = 420.0
+effects_description = "Congelamento: -65% de velocidade por 3s"
+projectile_overrides = {
+"freeze_duration": 3.0,
+"freeze_slow_factor": 0.65,
+"set_sprite_frames": SubResource("SpriteFrames_proj2")
+}
+turret_sprite_frames = SubResource("SpriteFrames_turret2")
+base_sprite_texture = ExtResource("2_base2")

@@ -1,0 +1,160 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/tower_info_panel.gd" id="1_panel"]
+
+[node name="TowerInfoPanel" type="CanvasLayer"]
+script = ExtResource("1_panel")
+
+[node name="Box" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Box"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Box/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+text = "Torre"
+
+[node name="HeaderRow" type="GridContainer" parent="Box/Content"]
+layout_mode = 2
+columns = 3
+
+[node name="HeaderStat" type="Label" parent="Box/Content/HeaderRow"]
+layout_mode = 2
+text = ""
+
+[node name="HeaderCurrent" type="Label" parent="Box/Content/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+horizontal_alignment = 1
+text = "Atual"
+
+[node name="HeaderNext" type="Label" parent="Box/Content/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+text = "Upgrade"
+
+[node name="StatsGrid" type="GridContainer" parent="Box/Content"]
+layout_mode = 2
+columns = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 4
+
+[node name="RangeNameLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Alcance"
+
+[node name="RangeCurrentLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "0"
+
+[node name="RangeNextLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="SpeedNameLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Vel. ataque"
+
+[node name="SpeedCurrentLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "0"
+
+[node name="SpeedNextLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="ProjSpeedNameLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Vel. projétil"
+
+[node name="ProjSpeedCurrentLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "0"
+
+[node name="ProjSpeedNextLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="DamageNameLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Dano"
+
+[node name="DamageCurrentLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+text = "0"
+
+[node name="DamageNextLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="EffectsNameLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Efeitos"
+
+[node name="EffectsCurrentLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+autowrap_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = "—"
+
+[node name="EffectsNextLabel" type="Label" parent="Box/Content/StatsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.6, 1)
+horizontal_alignment = 1
+autowrap_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = ""
+
+[node name="ButtonSeparator" type="Control" parent="Box/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 8)
+
+[node name="UpgradeButton" type="Button" parent="Box/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 44)
+text = "Upgrade"
+
+[node name="CloseButton" type="Button" parent="Box/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 40)
+text = "Fechar"
+
+[connection signal="pressed" from="Box/Content/UpgradeButton" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="Box/Content/CloseButton" to="." method="_on_close_pressed"]

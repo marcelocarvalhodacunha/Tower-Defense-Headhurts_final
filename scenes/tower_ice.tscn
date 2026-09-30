@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://h1os4k67eauj"]
+
+[ext_resource type="PackedScene" uid="uid://7vph50s7xgh8" path="res://scenes/tower.tscn" id="1_ice"]
+[ext_resource type="Script" uid="uid://c65f8kpb7gaai" path="res://scripts/towers/tower_ice.gd" id="2_ice"]
+[ext_resource type="PackedScene" path="res://scenes/projectile_ice.tscn" id="3_ice"]
+[ext_resource type="Texture2D" uid="uid://bycs7stv5p1gq" path="res://sprites/Towers bases/ice_base.png" id="4_ice"]
+[ext_resource type="Texture2D" uid="uid://bdt4uvq6m2hgi" path="res://sprites/Towers Weapons/ice_turret.png" id="5_ice"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice_turret"]
+atlas = ExtResource("5_ice")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ice_turret"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ice_turret")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ice"]
+
+[node name="TowerIce" unique_id=760411638 instance=ExtResource("1_ice")]
+script = ExtResource("2_ice")
+display_name = "Torre Gelo"
+damage = 1
+attack_range = 150.0
+attack_speed = 0.8
+cost = 80
+effects_description = "Congelamento: -50% de velocidade por 2.5s"
+projectile_scene = ExtResource("3_ice")
+default_upgrade_paths = Array[String](["res://resources/tower_ice_upgrade_1.tres"])
+target_priority = 0
+
+[node name="Base" parent="." index="0" unique_id=470507054]
+texture = ExtResource("4_ice")
+
+[node name="Turret" parent="." index="1" unique_id=1811122724]
+sprite_frames = SubResource("SpriteFrames_ice_turret")
+animation = &"shoot"
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(759435905) index="0" unique_id=1396275478]
+shape = SubResource("CircleShape2D_ice")

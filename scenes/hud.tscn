@@ -1,0 +1,289 @@
+[gd_scene format=3 uid="uid://cv2m52ccrqsm4"]
+
+[ext_resource type="Script" uid="uid://dp7losvk6i6fr" path="res://scripts/game_hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1751518709]
+process_mode = 3
+script = ExtResource("1_hud")
+
+[node name="Margin" type="VBoxContainer" parent="." unique_id=1690852383]
+process_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -124.0
+offset_right = 200.0
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="HealthLabel" type="Label" parent="Margin" unique_id=1275865199]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Vida: 20/20"
+
+[node name="GoldLabel" type="Label" parent="Margin" unique_id=1689252907]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Ouro: 150"
+
+[node name="WaveLabel" type="Label" parent="Margin" unique_id=647059867]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Wave: 0/0"
+
+[node name="TimeLabel" type="Label" parent="Margin" unique_id=375802517]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Time: 0"
+
+[node name="Timer" type="Timer" parent="Margin/TimeLabel" unique_id=1836618532]
+autostart = true
+
+[node name="SpeedPanel" type="HBoxContainer" parent="." unique_id=974259883]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Speed1xButton" type="Button" parent="SpeedPanel" unique_id=912201909]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+disabled = true
+text = "1x"
+
+[node name="Speed15xButton" type="Button" parent="SpeedPanel" unique_id=1881532842]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+text = "1.5x"
+
+[node name="Speed2xButton" type="Button" parent="SpeedPanel" unique_id=232512474]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+text = "2x"
+
+[node name="Speed4xButton" type="Button" parent="SpeedPanel" unique_id=231216146]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+text = "4x"
+
+[node name="PausePanel" type="Control" parent="." unique_id=851748972]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Overlay" type="ColorRect" parent="PausePanel" unique_id=1187953209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterBox" type="VBoxContainer" parent="PausePanel" unique_id=448035242]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="PausePanel/CenterBox" unique_id=589589000]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
+text = "PAUSADO"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PausePanel/CenterBox" unique_id=1222165291]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Continuar"
+
+[node name="RestartButton" type="Button" parent="PausePanel/CenterBox" unique_id=580063152]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Recomeçar"
+
+[node name="MenuButton" type="Button" parent="PausePanel/CenterBox" unique_id=2118252353]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Menu"
+
+[node name="QuitButton" type="Button" parent="PausePanel/CenterBox" unique_id=200972890]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Sair"
+
+[node name="MissionCompletePanel" type="Control" parent="." unique_id=506028847]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Overlay" type="ColorRect" parent="MissionCompletePanel" unique_id=608171688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterBox" type="VBoxContainer" parent="MissionCompletePanel" unique_id=1888117785]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MissionCompletePanel/CenterBox" unique_id=903171678]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
+text = "MISSÃO CONCLUÍDA"
+horizontal_alignment = 1
+
+[node name="StatsSeparator" type="Control" parent="MissionCompletePanel/CenterBox" unique_id=731479946]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="EnemiesLabel" type="Label" parent="MissionCompletePanel/CenterBox" unique_id=1559054817]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Inimigos mortos: 0/0"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MissionCompletePanel/CenterBox" unique_id=1999688093]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Tempo total: 0s"
+horizontal_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="MissionCompletePanel/CenterBox" unique_id=1754342151]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Vida final: 0/0"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="MissionCompletePanel/CenterBox" unique_id=509820831]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Ouro final: 0"
+horizontal_alignment = 1
+
+[node name="ButtonSeparator" type="Control" parent="MissionCompletePanel/CenterBox" unique_id=244651368]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="MissionCompletePanel/CenterBox" unique_id=2094669440]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Menu"
+
+[node name="MissionsButton" type="Button" parent="MissionCompletePanel/CenterBox" unique_id=1299511708]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Missions"
+
+[node name="GameOverPanel" type="Control" parent="." unique_id=316546557]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Overlay" type="ColorRect" parent="GameOverPanel" unique_id=1948141367]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterBox" type="VBoxContainer" parent="GameOverPanel" unique_id=2123156947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="GameOverPanel/CenterBox" unique_id=464713966]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverPanel/CenterBox" unique_id=2107334287]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Recomeçar"
+
+[node name="MenuButton" type="Button" parent="GameOverPanel/CenterBox" unique_id=2091537318]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Menu"
+
+[node name="QuitButton" type="Button" parent="GameOverPanel/CenterBox" unique_id=1661499801]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Sair"
+
+[connection signal="timeout" from="Margin/TimeLabel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="PausePanel/CenterBox/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PausePanel/CenterBox/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PausePanel/CenterBox/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="PausePanel/CenterBox/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MissionCompletePanel/CenterBox/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MissionCompletePanel/CenterBox/MissionsButton" to="." method="_on_missions_pressed"]
+[connection signal="pressed" from="GameOverPanel/CenterBox/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverPanel/CenterBox/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GameOverPanel/CenterBox/QuitButton" to="." method="_on_quit_pressed"]
